@@ -1,0 +1,14 @@
+#lang racket
+
+
+(define (check-color target-1 target-2 guess-1 guess-2)
+   (cond
+     [ (and (symbol=? target-1 guess-1) (symbol=? target-2 guess-2)) 'Perfect ]
+     [ (or (symbol=? target-1 guess-1) (symbol=? target-2 guess-2)) 'OneColorAtCorrectPosition ]
+     [ (or (or (symbol=? target-1 guess-1) (symbol=? target-2 guess-2)) (or (symbol=? target-1 guess-2) (symbol=? target-2 guess-1)) ) 'OneColorOccurs ]
+     [ else 'NothingCorrect ]
+   )
+)
+
+
+(check-color 'red 'green 'red 'green)
